@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="attrec">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="attendance_id" type="xs:string"/>
+      <xs:element name="student_id" type="xs:string"/>
+      <xs:element name="tutorial_group_id" type="xs:string"/>
+      <xs:element name="week_id" type="xs:string"/>
+      <xs:element name="presented" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
