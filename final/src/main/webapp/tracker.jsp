@@ -30,18 +30,18 @@
 
     if (user == null) {
 %>
-
- <img src="/images/logo.png" alt="TUM logo" height="100" width="400"> 
-
-<p>Hello! Please
-	<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">sign in</a>
-    to track your attendance.</p>
+<img src="/images/logo.png" alt="TUM logo" height="100" width="350"> 
+<h2>Welcome to the Attendance Tracker System!</h2>
+<p>
+Please
+	<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+   .</p>
 
 <%
     } else {
         pageContext.setAttribute("user", user);
 %>
-
+<img src="/images/logo.png" alt="TUM logo" height="100" width="350"> 
 <p>Hello, <b>${fn:escapeXml(user.nickname)}</b>! (You can
     <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p> 
     
