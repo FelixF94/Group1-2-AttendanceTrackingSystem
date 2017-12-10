@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-<!-- [START standard_mappings] ->
+<!-- [START standard_mappings] -->
     <servlet>
       <servlet-name>sign</servlet-name>
       <servlet-class>com.example.guestbook.SignGuestbookServlet</servlet-class>
@@ -17,9 +17,9 @@
     <welcome-file-list>
         <welcome-file>guestbook.jsp</welcome-file>
     </welcome-file-list>
-<!- [END standard_mappings] ->
+<!-- [END standard_mappings] -->
 
-<!- [START Objectify] ->
+<!-- [START Objectify] -->
     <filter>
       <filter-name>ObjectifyFilter</filter-name>
       <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
@@ -31,7 +31,7 @@
     <listener>
       <listener-class>com.example.guestbook.OfyHelper</listener-class>
     </listener>
-<!-[END Objectify] -->
+<!--[END Objectify] ->
 
 <display-name>first steps servlet</display-name>
 
@@ -44,11 +44,12 @@
     </init-param>
 </servlet>
 
-<!-- Catch all requests -->
+<!- Catch all requests ->
 <servlet-mapping>
     <servlet-name>RestletServlet</servlet-name>
     <url-pattern>/*</url-pattern>
 </servlet-mapping>
 
+<!- Catch all requests -->
 
 </web-app>
