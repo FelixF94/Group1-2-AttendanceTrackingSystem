@@ -33,7 +33,6 @@ public class OfyHelper implements ServletContextListener {
     // request.
     ObjectifyService.register(Student.class);
     ObjectifyService.register(Group.class);
-    ObjectifyService.register(Exercise.class);
   }
 
   public void contextDestroyed(ServletContextEvent event) {

@@ -1,3 +1,17 @@
+/**
+ * FILENAME: Student.java
+ * 
+ * DESCRIPTION: This class represents a student
+ * 
+ * NOTES: Copyright 2017 TUM. All Rights Reserved.
+ *
+ * AUTHOR: Johannes Seiler
+ * 
+ * START DATE: 10 Dec 2017
+ *
+ */
+
+//[START all]
 package com.attendancetrackingsystem;
 
 import com.googlecode.objectify.Key;
@@ -7,9 +21,12 @@ import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
 
 import java.lang.String;
-import java.util.Date;
-import java.util.List;
 
+/**
+ * The @Entity tells Objectify about our entity.  We also register it in
+ * OfyHelper.java -- very important.
+ *
+ */
 @Entity
 public class Student {
 
@@ -24,3 +41,4 @@ public class Student {
         this.group = group;
     }
 }
+//[END all]
