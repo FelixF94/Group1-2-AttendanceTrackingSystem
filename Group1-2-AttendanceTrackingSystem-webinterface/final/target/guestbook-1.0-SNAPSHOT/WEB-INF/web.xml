@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<!-- [START standard_mappings] -->
+    <servlet>
+      <servlet-name>sign</servlet-name>
+      <servlet-class>com.attendancetrackingsystem.SignTrackerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>sign</servlet-name>
+      <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>tracker.jsp</welcome-file>
+    </welcome-file-list>
+<!-- [END standard_mappings] -->
+
+<!-- [START Objectify] -->
+    <filter>
+      <filter-name>ObjectifyFilter</filter-name>
+      <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>ObjectifyFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+      <listener-class>com.attendancetrackingsystem.OfyHelper</listener-class>
+    </listener>
+<!-- [END Objectify] -->
+
+<!-- Application class name -->
+<context-param>
+    <param-name>org.restlet.application</param-name>
+    <param-value>
+        com.attendancetrackingsystem.MyApplication
+    </param-value>
+</context-param>
+
+
+<servlet>
+    <servlet-name>RestletServlet</servlet-name>
+    <servlet-class>
+        org.restlet.ext.servlet.ServerServlet
+    </servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>RestletServlet</servlet-name>
+    <url-pattern>/hi</url-pattern>
+    <!-- or -->
+    <!-- url-pattern>/www.example.com/*</url-pattern -->
+</servlet-mapping> 
+
+</web-app>
