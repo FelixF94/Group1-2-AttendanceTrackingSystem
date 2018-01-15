@@ -20,9 +20,9 @@ public class MyApplication extends Application{
     @Override
     public Restlet createInboundRoot() {
         Router router = new Router(getContext());
-
+        
         router.attachDefault(MyServerResource.class);
-
+        //router.attach("/student/{email}", MyServerResource.class);
         return router;
     }
     

@@ -57,7 +57,7 @@ public class SignTrackerServlet extends HttpServlet {
 			Key<Group> groupKey = Key.create(Group.class, group.id);
 			
 			if (user != null) {
-				Student student = new Student(user.getNickname(), groupKey);
+				Student student = new Student(user.getEmail(), user.getNickname(), groupKey);
 				ObjectifyService.ofy().save().entity(student).now();
 			} else {
 				

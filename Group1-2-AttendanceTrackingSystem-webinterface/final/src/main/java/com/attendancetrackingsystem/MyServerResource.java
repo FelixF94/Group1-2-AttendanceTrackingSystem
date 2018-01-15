@@ -9,13 +9,27 @@ import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
+import com.attendancetrackingsystem.Student;
+
+import com.googlecode.objectify.*;
+
 /**
  *
  * @author felix
  */
 public class MyServerResource extends ServerResource {
-    @Get
+    @Get 
     public String present() {
-       return "Test";
+    	//ObjectifyService.ofy().load().key(student.group).now();
+    	String email = "test@example.com";
+    	Student student = ObjectifyService.ofy()
+    			.load()
+    			.type(Student.class)
+    			.filter("name", email)
+    			.first()
+    			.now();
+    	
+    	 return student.name;
+       //return student.name;
     }
 }

@@ -7,6 +7,7 @@ import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
 
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,11 +19,15 @@ public class Student {
     @Parent public Key<Group> group;
     public String email;
     
+    //public ArrayList<Token> tokenList;
+    
     public Student() {};
     
-    public Student(String name, Key<Group> group){
+    public Student(String email, String name, Key<Group> group){
+    	this.email = email;
         this.name = name;
         this.group = group;
+        //this.tokenList = new ArrayList<Token>();
         
     }
     
@@ -32,4 +37,14 @@ public class Student {
         this.email = email;
         
     }
+    
+    /*
+    public void addToken(Token token) {
+    	this.tokenList.add(token);
+    }
+    
+    public Token getToken(int weeknr) {
+    	return this.tokenList.get(weeknr-1);
+    }
+    */
 }
