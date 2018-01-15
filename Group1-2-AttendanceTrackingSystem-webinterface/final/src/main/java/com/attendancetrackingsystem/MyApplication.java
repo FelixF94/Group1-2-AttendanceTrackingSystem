@@ -23,6 +23,4 @@ public class MyApplication extends Application{
         router.attach("/{email}", MyServerResource.class);
         return router;
     }
-    
-    
 }

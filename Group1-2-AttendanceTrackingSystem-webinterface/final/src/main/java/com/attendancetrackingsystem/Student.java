@@ -31,14 +31,9 @@ public class Student {
         //this.tokenList = new ArrayList<Token>();
         
     }
-    
-    /*
-    public void addToken(Token token) {
-    	this.tokenList.add(token);
+   
+    public void generateToken() {
+    	
     }
     
-    public Token getToken(int weeknr) {
-    	return this.tokenList.get(weeknr-1);
-    }
-    */
 }

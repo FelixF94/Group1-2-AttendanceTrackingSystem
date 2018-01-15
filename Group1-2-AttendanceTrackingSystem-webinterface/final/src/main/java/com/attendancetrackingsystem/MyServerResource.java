@@ -34,21 +34,7 @@ public class MyServerResource extends ServerResource {
 				 .filter("email", email)
 				 .first()
 				 .now();
-			 
+			
 		 return student.email;
 	 }
-	
-//    public String present(String email) {
-//    	//ObjectifyService.ofy().load().key(student.group).now();
-//    	String email = "test@example.com";
-//    	Student student = ObjectifyService.ofy()
-//    			.load()
-//    			.type(Student.class)
-//    			.filter("email", email)
-//    			.first()
-//    			.now();
-//    	
-//    	return student.email;
-//    
-//    }
 }
