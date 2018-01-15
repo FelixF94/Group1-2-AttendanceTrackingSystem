@@ -13,23 +13,42 @@ import com.attendancetrackingsystem.Student;
 
 import com.googlecode.objectify.*;
 
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
 /**
  *
  * @author felix
  */
 public class MyServerResource extends ServerResource {
-    @Get 
-    public String present() {
-    	//ObjectifyService.ofy().load().key(student.group).now();
-    	String email = "test@example.com";
-    	Student student = ObjectifyService.ofy()
-    			.load()
-    			.type(Student.class)
-    			.filter("name", email)
-    			.first()
-    			.now();
-    	
-    	 return student.name;
-       //return student.name;
-    }
+    
+	 @Get
+	 public String present() {
+		 String email = (String)this.getRequestAttributes().get("email");
+		
+		 Student student = ObjectifyService.ofy()
+				 .load()
+				 .type(Student.class)
+				 .filter("email", email)
+				 .first()
+				 .now();
+			 
+		 return student.email;
+	 }
+	
+//    public String present(String email) {
+//    	//ObjectifyService.ofy().load().key(student.group).now();
+//    	String email = "test@example.com";
+//    	Student student = ObjectifyService.ofy()
+//    			.load()
+//    			.type(Student.class)
+//    			.filter("email", email)
+//    			.first()
+//    			.now();
+//    	
+//    	return student.email;
+//    
+//    }
 }

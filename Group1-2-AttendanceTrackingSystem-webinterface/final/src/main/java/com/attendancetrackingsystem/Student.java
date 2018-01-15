@@ -16,25 +16,19 @@ public class Student {
 
 	@Id public Long id;
     @Index public String name;
+    @Index public String email;
     @Parent public Key<Group> group;
-    public String email;
+   
     
     //public ArrayList<Token> tokenList;
     
     public Student() {};
     
-    public Student(String email, String name, Key<Group> group){
+    public Student(String name, String email, Key<Group> group){
+    	this.name = name;
     	this.email = email;
-        this.name = name;
         this.group = group;
         //this.tokenList = new ArrayList<Token>();
-        
-    }
-    
-    public Student(String name, Key<Group> group, String email){
-        this.name = name;
-        this.group = group;
-        this.email = email;
         
     }
     
