@@ -18,22 +18,17 @@ public class Student {
     @Index public String name;
     @Index public String email;
     @Parent public Key<Group> group;
-   
-    
-    //public ArrayList<Token> tokenList;
-    
+    Token token;
+ 
     public Student() {};
     
     public Student(String name, String email, Key<Group> group){
     	this.name = name;
     	this.email = email;
         this.group = group;
-        //this.tokenList = new ArrayList<Token>();
-        
     }
    
-    public void generateToken() {
-    	
+    public void addToken(Token token) {
+    	this.token = token;
     }
-    
 }

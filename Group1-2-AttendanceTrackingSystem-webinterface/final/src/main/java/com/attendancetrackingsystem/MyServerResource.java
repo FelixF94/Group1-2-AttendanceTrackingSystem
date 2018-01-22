@@ -12,7 +12,7 @@ import org.restlet.resource.ServerResource;
 import com.attendancetrackingsystem.Student;
 
 import com.googlecode.objectify.*;
-
+import java.text.SimpleDateFormat;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,17 +24,28 @@ import java.time.format.DateTimeFormatter;
  */
 public class MyServerResource extends ServerResource {
     
-	 @Get
+	 @Get("xml")
 	 public String present() {
 		 String email = (String)this.getRequestAttributes().get("email");
-		
+                 String weeknumber = new SimpleDateFormat("w").format(new java.util.Date());
+                 Token token = new Token(email, weeknumber);
+                 
 		 Student student = ObjectifyService.ofy()
 				 .load()
 				 .type(Student.class)
 				 .filter("email", email)
 				 .first()
 				 .now();
-			
-		 return student.email;
+                 
+                 student.addToken(token);
+                 
+                 
+                 
+                 //ObjectifyService.ofy().save().entity(student).now();
+		 String hashToReturn = token.getHash();
+                 String ret = " ";
+                 ret+="<hash>"+hashToReturn+"</hash>";
+                 
+		 return ret;
 	 }
 }
